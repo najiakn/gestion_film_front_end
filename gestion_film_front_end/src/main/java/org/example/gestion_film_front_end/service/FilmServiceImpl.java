@@ -38,11 +38,12 @@ public class FilmServiceImpl implements FilmService {
     public Film updateFilm(int id_film, Film film) {
         Optional <Film> existinFilm=filmdao.findById(id_film);
         if(existinFilm.isPresent()){  Film updateFilm = existinFilm.get();
-          updateFilm.setTitre(film.getTitre());
-          updateFilm.setDate_sortie(film.getDate_sortie());
-          updateFilm.setGenre(film.getGenre());
-          updateFilm.setRealisateur(film.getRealisateur());
-          updateFilm.setNote(film.getNote());
+            updateFilm.setDate_sortie(film.getDate_sortie());
+            updateFilm.setGenre(film.getGenre());
+            updateFilm.setNote(film.getNote());
+            updateFilm.setRealisateur(film.getRealisateur());
+
+            updateFilm.setTitre(film.getTitre());
           return filmdao.save(updateFilm);
 
         }
